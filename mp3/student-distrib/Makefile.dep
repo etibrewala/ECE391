@@ -1,0 +1,176 @@
+boot.o: boot.S multiboot.h x86_desc.h types.h
+x86_desc.o: x86_desc.S x86_desc.h types.h paging/paging.h
+i8259.o: i8259.c i8259.h types.h lib.h
+kernel.o: kernel.c multiboot.h types.h x86_desc.h \
+  interrupts/idt_handlers.h interrupts/../devices/init_devices.h \
+  interrupts/../devices/../lib.h interrupts/../devices/../types.h \
+  interrupts/../types.h interrupts/syscallnums.h interrupts/kbd_map.h \
+  interrupts/../process/process.h interrupts/../process/../types.h \
+  interrupts/../process/../paging/paging.h \
+  interrupts/../process/../paging/../types.h \
+  interrupts/../process/../paging/../lib.h interrupts/../process/sched.h \
+  interrupts/../process/process.h lib.h i8259.h devices/init_devices.h \
+  debug.h tests.h paging/paging.h filesystems/filesystem.h \
+  filesystems/../types.h filesystems/../lib.h \
+  filesystems/../devices/rtcdrivers.h filesystems/../devices/../types.h \
+  filesystems/../devices/../interrupts/idt_handlers.h \
+  filesystems/../devices/terminaldriver.h filesystems/../devices/../lib.h \
+  filesystems/../process/process.h interrupts/syscalls.h \
+  interrupts/../filesystems/filesystem.h interrupts/../paging/paging.h \
+  process/process.h process/sched.h
+lib.o: lib.c lib.h types.h process/sched.h process/../types.h \
+  process/process.h process/../paging/paging.h \
+  process/../paging/../types.h process/../paging/../lib.h process/sched.h
+tests.o: tests.c tests.h x86_desc.h types.h lib.h \
+  filesystems/filesystem.h filesystems/../types.h filesystems/../lib.h \
+  filesystems/../devices/rtcdrivers.h filesystems/../devices/../types.h \
+  filesystems/../devices/../interrupts/idt_handlers.h \
+  filesystems/../devices/../interrupts/../devices/init_devices.h \
+  filesystems/../devices/../interrupts/../devices/../lib.h \
+  filesystems/../devices/../interrupts/../types.h \
+  filesystems/../devices/../interrupts/syscallnums.h \
+  filesystems/../devices/../interrupts/kbd_map.h \
+  filesystems/../devices/../interrupts/../process/process.h \
+  filesystems/../devices/../interrupts/../process/../types.h \
+  filesystems/../devices/../interrupts/../process/../paging/paging.h \
+  filesystems/../devices/../interrupts/../process/../paging/../types.h \
+  filesystems/../devices/../interrupts/../process/../paging/../lib.h \
+  filesystems/../devices/../interrupts/../process/sched.h \
+  filesystems/../devices/../interrupts/../process/process.h \
+  filesystems/../devices/terminaldriver.h filesystems/../devices/../lib.h \
+  filesystems/../process/process.h devices/terminaldriver.h \
+  interrupts/idt_handlers.h devices/init_devices.h devices/rtcdrivers.h
+idt_handlers_linkage.o: interrupts/idt_handlers_linkage.S \
+  interrupts/syscallnums.h
+paging_asm.o: paging/paging_asm.S
+init_devices.o: devices/init_devices.c devices/init_devices.h \
+  devices/../lib.h devices/../types.h devices/../i8259.h \
+  devices/rtcdrivers.h devices/../types.h \
+  devices/../interrupts/idt_handlers.h \
+  devices/../interrupts/../devices/init_devices.h \
+  devices/../interrupts/../types.h devices/../interrupts/syscallnums.h \
+  devices/../interrupts/kbd_map.h \
+  devices/../interrupts/../process/process.h \
+  devices/../interrupts/../process/../types.h \
+  devices/../interrupts/../process/../paging/paging.h \
+  devices/../interrupts/../process/../paging/../types.h \
+  devices/../interrupts/../process/../paging/../lib.h \
+  devices/../interrupts/../process/sched.h \
+  devices/../interrupts/../process/process.h
+rtcdrivers.o: devices/rtcdrivers.c devices/rtcdrivers.h \
+  devices/../types.h devices/../interrupts/idt_handlers.h \
+  devices/../interrupts/../devices/init_devices.h \
+  devices/../interrupts/../devices/../lib.h \
+  devices/../interrupts/../devices/../types.h \
+  devices/../interrupts/../types.h devices/../interrupts/syscallnums.h \
+  devices/../interrupts/kbd_map.h \
+  devices/../interrupts/../process/process.h \
+  devices/../interrupts/../process/../types.h \
+  devices/../interrupts/../process/../paging/paging.h \
+  devices/../interrupts/../process/../paging/../types.h \
+  devices/../interrupts/../process/../paging/../lib.h \
+  devices/../interrupts/../process/sched.h \
+  devices/../interrupts/../process/process.h devices/../lib.h
+terminaldriver.o: devices/terminaldriver.c devices/terminaldriver.h \
+  devices/../lib.h devices/../types.h devices/../types.h \
+  devices/../interrupts/idt_handlers.h \
+  devices/../interrupts/../devices/init_devices.h \
+  devices/../interrupts/../devices/../lib.h \
+  devices/../interrupts/../types.h devices/../interrupts/syscallnums.h \
+  devices/../interrupts/kbd_map.h \
+  devices/../interrupts/../process/process.h \
+  devices/../interrupts/../process/../types.h \
+  devices/../interrupts/../process/../paging/paging.h \
+  devices/../interrupts/../process/../paging/../types.h \
+  devices/../interrupts/../process/../paging/../lib.h \
+  devices/../interrupts/../process/sched.h \
+  devices/../interrupts/../process/process.h devices/../process/sched.h
+filesystem.o: filesystems/filesystem.c filesystems/filesystem.h \
+  filesystems/../types.h filesystems/../lib.h filesystems/../types.h \
+  filesystems/../devices/rtcdrivers.h filesystems/../devices/../types.h \
+  filesystems/../devices/../interrupts/idt_handlers.h \
+  filesystems/../devices/../interrupts/../devices/init_devices.h \
+  filesystems/../devices/../interrupts/../devices/../lib.h \
+  filesystems/../devices/../interrupts/../types.h \
+  filesystems/../devices/../interrupts/syscallnums.h \
+  filesystems/../devices/../interrupts/kbd_map.h \
+  filesystems/../devices/../interrupts/../process/process.h \
+  filesystems/../devices/../interrupts/../process/../types.h \
+  filesystems/../devices/../interrupts/../process/../paging/paging.h \
+  filesystems/../devices/../interrupts/../process/../paging/../types.h \
+  filesystems/../devices/../interrupts/../process/../paging/../lib.h \
+  filesystems/../devices/../interrupts/../process/sched.h \
+  filesystems/../devices/../interrupts/../process/process.h \
+  filesystems/../devices/terminaldriver.h filesystems/../devices/../lib.h \
+  filesystems/../process/process.h
+idt_handlers.o: interrupts/idt_handlers.c interrupts/idt_handlers.h \
+  interrupts/../devices/init_devices.h interrupts/../devices/../lib.h \
+  interrupts/../devices/../types.h interrupts/../types.h \
+  interrupts/syscallnums.h interrupts/kbd_map.h \
+  interrupts/../process/process.h interrupts/../process/../types.h \
+  interrupts/../process/../paging/paging.h \
+  interrupts/../process/../paging/../types.h \
+  interrupts/../process/../paging/../lib.h interrupts/../process/sched.h \
+  interrupts/../process/process.h interrupts/syscalls.h \
+  interrupts/../filesystems/filesystem.h \
+  interrupts/../filesystems/../types.h interrupts/../filesystems/../lib.h \
+  interrupts/../filesystems/../devices/rtcdrivers.h \
+  interrupts/../filesystems/../devices/../types.h \
+  interrupts/../filesystems/../devices/../interrupts/idt_handlers.h \
+  interrupts/../filesystems/../devices/terminaldriver.h \
+  interrupts/../filesystems/../devices/../lib.h \
+  interrupts/../filesystems/../process/process.h \
+  interrupts/../paging/paging.h interrupts/../lib.h interrupts/../i8259.h \
+  interrupts/../types.h interrupts/../process/sched.h \
+  interrupts/../devices/rtcdrivers.h
+syscalls.o: interrupts/syscalls.c interrupts/syscalls.h \
+  interrupts/../types.h interrupts/../process/process.h \
+  interrupts/../process/../types.h \
+  interrupts/../process/../paging/paging.h \
+  interrupts/../process/../paging/../types.h \
+  interrupts/../process/../paging/../lib.h \
+  interrupts/../process/../paging/../types.h \
+  interrupts/../process/sched.h interrupts/../process/process.h \
+  interrupts/../filesystems/filesystem.h \
+  interrupts/../filesystems/../types.h interrupts/../filesystems/../lib.h \
+  interrupts/../filesystems/../devices/rtcdrivers.h \
+  interrupts/../filesystems/../devices/../types.h \
+  interrupts/../filesystems/../devices/../interrupts/idt_handlers.h \
+  interrupts/../filesystems/../devices/../interrupts/../devices/init_devices.h \
+  interrupts/../filesystems/../devices/../interrupts/../devices/../lib.h \
+  interrupts/../filesystems/../devices/../interrupts/../types.h \
+  interrupts/../filesystems/../devices/../interrupts/syscallnums.h \
+  interrupts/../filesystems/../devices/../interrupts/kbd_map.h \
+  interrupts/../filesystems/../devices/../interrupts/../process/process.h \
+  interrupts/../filesystems/../devices/terminaldriver.h \
+  interrupts/../filesystems/../devices/../lib.h \
+  interrupts/../filesystems/../process/process.h \
+  interrupts/../paging/paging.h interrupts/../lib.h
+paging.o: paging/paging.c paging/paging.h paging/../types.h \
+  paging/../lib.h paging/../types.h
+process.o: process/process.c process/process.h process/../types.h \
+  process/../paging/paging.h process/../paging/../types.h \
+  process/../paging/../lib.h process/../paging/../types.h process/sched.h \
+  process/../x86_desc.h process/../types.h \
+  process/../filesystems/filesystem.h process/../filesystems/../types.h \
+  process/../filesystems/../lib.h \
+  process/../filesystems/../devices/rtcdrivers.h \
+  process/../filesystems/../devices/../types.h \
+  process/../filesystems/../devices/../interrupts/idt_handlers.h \
+  process/../filesystems/../devices/../interrupts/../devices/init_devices.h \
+  process/../filesystems/../devices/../interrupts/../devices/../lib.h \
+  process/../filesystems/../devices/../interrupts/../types.h \
+  process/../filesystems/../devices/../interrupts/syscallnums.h \
+  process/../filesystems/../devices/../interrupts/kbd_map.h \
+  process/../filesystems/../devices/../interrupts/../process/process.h \
+  process/../filesystems/../devices/terminaldriver.h \
+  process/../filesystems/../devices/../lib.h \
+  process/../filesystems/../process/process.h \
+  process/../interrupts/syscalls.h process/../interrupts/../types.h \
+  process/../interrupts/../process/process.h \
+  process/../interrupts/../filesystems/filesystem.h \
+  process/../interrupts/../paging/paging.h
+sched.o: process/sched.c process/sched.h process/../types.h \
+  process/process.h process/../paging/paging.h \
+  process/../paging/../types.h process/../paging/../lib.h \
+  process/../paging/../types.h process/../lib.h

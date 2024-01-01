@@ -1,0 +1,9 @@
+p/x solution
+
+x/2xw $sp
+
+info reg
+
+break ece.c:391
+
+target remote 10.0.2.2:1234
